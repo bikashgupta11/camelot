@@ -4,6 +4,30 @@ Release History
 master
 ------
 
+0.8.2 (2020-07-27)
+------------------
+
+* Revert the changes in `0.8.1`.
+
+0.8.1 (2020-07-21)
+------------------
+
+**Bugfixes**
+
+* [#169](https://github.com/camelot-dev/camelot/issues/169) Fix import error caused by `pdfminer.six==20200720`. [#171](https://github.com/camelot-dev/camelot/pull/171) by Vinayak Mehta.
+
+0.8.0 (2020-05-24)
+------------------
+
+**Improvements**
+
+* Drop Python 2 support!
+    * Remove Python 2.7 and 3.5 support.
+    * Replace all instances of `.format` with f-strings.
+    * Remove all `__future__` imports.
+    * Fix HTTP 403 forbidden exception in read_pdf(url) and remove Python 2 urllib support.
+    * Fix test data.
+
 **Bugfixes**
 
 * Fix library discovery on Windows. [#32](https://github.com/camelot-dev/camelot/pull/32) by [KOLANICH](https://github.com/KOLANICH).

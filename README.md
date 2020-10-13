@@ -7,16 +7,16 @@
 [![Build Status](https://travis-ci.org/camelot-dev/camelot.svg?branch=master)](https://travis-ci.org/camelot-dev/camelot) [![Documentation Status](https://readthedocs.org/projects/camelot-py/badge/?version=master)](https://camelot-py.readthedocs.io/en/master/)
  [![codecov.io](https://codecov.io/github/camelot-dev/camelot/badge.svg?branch=master&service=github)](https://codecov.io/github/camelot-dev/camelot?branch=master)
  [![image](https://img.shields.io/pypi/v/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![image](https://img.shields.io/pypi/l/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![image](https://img.shields.io/pypi/pyversions/camelot-py.svg)](https://pypi.org/project/camelot-py/) [![Gitter chat](https://badges.gitter.im/camelot-dev/Lobby.png)](https://gitter.im/camelot-dev/Lobby)
-[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black) [![image](https://img.shields.io/badge/continous%20quality-deepsource-lightgrey)](https://deepsource.io/gh/camelot-dev/camelot/?ref=repository-badge)
 
 
-**Camelot** is a Python library that makes it easy for *anyone* to extract tables from PDF files!
+**Camelot** is a Python library that can help you extract tables from PDFs!
 
-**Note:** You can also check out [Excalibur](https://github.com/camelot-dev/excalibur), which is a web interface for Camelot!
+**Note:** You can also check out [Excalibur](https://github.com/camelot-dev/excalibur), the web interface to Camelot!
 
 ---
 
-**Here's how you can extract tables from PDF files.** Check out the PDF used in this example [here](https://github.com/camelot-dev/camelot/blob/master/docs/_static/pdf/foo.pdf).
+**Here's how you can extract tables from PDFs.** You can check out the PDF used in this example [here](https://github.com/camelot-dev/camelot/blob/master/docs/_static/pdf/foo.pdf).
 
 <pre>
 >>> import camelot
@@ -46,24 +46,27 @@
 | 2032_2     | 0.17      | 57.8          | 21.7%                | 0.3%            | 2.7%            | 1.2%           |
 | 4171_1     | 0.07      | 173.9         | 58.1%                | 1.6%            | 2.1%            | 0.5%           |
 
-There's a [command-line interface](https://camelot-py.readthedocs.io/en/master/user/cli.html) too!
+Camelot also comes packaged with a [command-line interface](https://camelot-py.readthedocs.io/en/master/user/cli.html)!
 
 **Note:** Camelot only works with text-based PDFs and not scanned documents. (As Tabula [explains](https://github.com/tabulapdf/tabula#why-tabula), "If you can click and drag to select text in your table in a PDF viewer, then your PDF is text-based".)
 
 ## Why Camelot?
 
-- **You are in control.**: Unlike other libraries and tools which either give a nice output or fail miserably (with no in-between), Camelot gives you the power to tweak table extraction. (This is important since everything in the real world, including PDF table extraction, is fuzzy.)
-- *Bad* tables can be discarded based on **metrics** like accuracy and whitespace, without ever having to manually look at each table.
-- Each table is a **pandas DataFrame**, which seamlessly integrates into [ETL and data analysis workflows](https://gist.github.com/vinayak-mehta/e5949f7c2410a0e12f25d3682dc9e873).
-- **Export** to multiple formats, including JSON, Excel, HTML and Sqlite.
+- **Configurability**: Camelot gives you control over the table extraction process with its [tweakable settings](https://camelot-py.readthedocs.io/en/master/user/advanced.html).
+- **Metrics**: Bad tables can be discarded based on metrics like accuracy and whitespace, without having to manually look at each table.
+- **Output**: Each table is extracted into a **pandas DataFrame**, which seamlessly integrates into [ETL and data analysis workflows](https://gist.github.com/vinayak-mehta/e5949f7c2410a0e12f25d3682dc9e873). You can also export tables to multiple formats, which include CSV, JSON, Excel, HTML and Sqlite.
 
-See [comparison with other PDF table extraction libraries and tools](https://github.com/camelot-dev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools).
+See [comparison with similar libraries and tools](https://github.com/camelot-dev/camelot/wiki/Comparison-with-other-PDF-Table-Extraction-libraries-and-tools).
+
+## Support the development
+
+If Camelot has helped you, please consider supporting its development with a one-time or monthly donation [on OpenCollective](https://opencollective.com/camelot).
 
 ## Installation
 
 ### Using conda
 
-The easiest way to install Camelot is to install it with [conda](https://conda.io/docs/), which is a package manager and  environment management system for the [Anaconda](http://docs.continuum.io/anaconda/) distribution.
+The easiest way to install Camelot is with [conda](https://conda.io/docs/), which is a package manager and environment management system for the [Anaconda](http://docs.continuum.io/anaconda/) distribution.
 
 <pre>
 $ conda install -c conda-forge camelot-py
@@ -71,10 +74,10 @@ $ conda install -c conda-forge camelot-py
 
 ### Using pip
 
-After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install-deps.html) ([tk](https://packages.ubuntu.com/bionic/python/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can simply use pip to install Camelot:
+After [installing the dependencies](https://camelot-py.readthedocs.io/en/master/user/install-deps.html) ([tk](https://packages.ubuntu.com/bionic/python/python-tk) and [ghostscript](https://www.ghostscript.com/)), you can also just use pip to install Camelot:
 
 <pre>
-$ pip install camelot-py[cv]
+$ pip install "camelot-py[cv]"
 </pre>
 
 ### From the source code
@@ -94,35 +97,15 @@ $ pip install ".[cv]"
 
 ## Documentation
 
-Great documentation is available at [http://camelot-py.readthedocs.io/](http://camelot-py.readthedocs.io/).
+The documentation is available at [http://camelot-py.readthedocs.io/](http://camelot-py.readthedocs.io/).
 
-## Development
+## Wrappers
 
-The [Contributor's Guide](https://camelot-py.readthedocs.io/en/master/dev/contributing.html) has detailed information about contributing code, documentation, tests and more. We've included some basic information in this README.
+- [camelot-php](https://github.com/randomstate/camelot-php) provides a [PHP](https://www.php.net/) wrapper on Camelot.
 
-### Source code
+## Contributing
 
-You can check the latest sources with:
-
-<pre>
-$ git clone https://www.github.com/camelot-dev/camelot
-</pre>
-
-### Setting up a development environment
-
-You can install the development dependencies easily, using pip:
-
-<pre>
-$ pip install camelot-py[dev]
-</pre>
-
-### Testing
-
-After installation, you can run tests using:
-
-<pre>
-$ python setup.py test
-</pre>
+The [Contributor's Guide](https://camelot-py.readthedocs.io/en/master/dev/contributing.html) has detailed information about contributing issues, documentation, code, and tests.
 
 ## Versioning
 
@@ -131,9 +114,3 @@ Camelot uses [Semantic Versioning](https://semver.org/). For the available versi
 ## License
 
 This project is licensed under the MIT License, see the [LICENSE](https://github.com/camelot-dev/camelot/blob/master/LICENSE) file for details.
-
-## Support the development
-
-You can support our work on Camelot with a one-time or monthly donation [on OpenCollective](https://opencollective.com/camelot). Organizations who use camelot can also sponsor the project for an acknowledgement on [our documentation site](https://camelot-py.readthedocs.io/en/master/) and this README.
-
-Special thanks to all the users, organizations and contributors that support Camelot!
